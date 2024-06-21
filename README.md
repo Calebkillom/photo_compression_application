@@ -1,0 +1,1 @@
+This project is intended to be my foundations Capstone Project ALX
