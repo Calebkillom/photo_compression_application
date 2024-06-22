@@ -1,0 +1,60 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+body {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center horizontally */
+    justify-content: flex-start;
+    height: 100vh;
+    background-color: #97e7e9;  /* Set the background color of the body */
+}
+
+/* Styling the top part of the website */
+.logosegment{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #ccffee;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 65px;
+    box-shadow: 5px 5px 10px rgba(128, 128, 128, 0.5);
+    box-sizing: border-box;
+}
+.logoshape{
+    padding: 10px;
+    background-color: #e0e0e0;
+    margin-left: 10px;
+    width: 150px;
+    height: 40px;
+    border-radius: 25px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+}
+.mainbody {
+    background-color: #ffffff;
+    padding: 20px;  /* Padding inside .mainbody */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Shadow effect */
+    width: 25%;  /* Set a specific width */
+    text-align: center;
+    margin-top: 60px;
+    height: auto;
+    min-height: 500px;
+}
+
+.innerbody {
+    max-width: 100%;
+}
