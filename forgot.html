@@ -13,11 +13,15 @@
         <h2>this is the body</h2>
         <div class="innerbody">
             <form action="">
-                <label for="Uname">Username</label><br>
-                <input type="text" id="uname" name="uname"><br>
-                <label for="Phone number, Email">Phone number, Email</label><br>
-                <input type="text" id="phonetwo" name="phonetwo"><br>
-                <button type="button">reset password</button><br>
+                <div class="did-floating-label-content">
+                    <input class="did-floating-input" type="text" id="uname" name="uname" placeholder=" " required>
+                    <label class="did-floating-label" for="uname">Username</label>
+                </div>
+                <div class="did-floating-label-content">
+                    <input class="did-floating-input" type="text" id="phonetwo" name="phonetwo" placeholder=" " required>
+                    <label class="did-floating-label" for="phonetwo">Phone number, Email</label>
+                </div>
+                <button type="button">Reset Password</button><br>
                 <a href="url">Log in</a>
             </form>
         </div>

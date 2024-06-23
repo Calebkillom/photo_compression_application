@@ -13,16 +13,26 @@
         <h2>this is the body</h2>
         <div class="innerbody">
             <form action="">
-                <label for="Phone number, Email">Phone number, Email</label><br>
-                <input type="text" id="phone" name="phone"><br>
-                <label for="fname">Firstname</label><br>
-                <input type="text" id="fname" name="fname"><br>
-                <label for="Lname">Lastname</label><br>
-                <input type="text" id="lname" name="lname"><br>
-                <label for="Uname">Username</label><br>
-                <input type="text" id="uname" name="uname"><br>
-                <label for="password"> Password</label><br>
-                <input type="text" id="passwd" name="passwd"><br>
+                <div class="did-floating-label-content">
+                    <input class="did-floating-input" type="text" id="phone" name="phone" placeholder=" " required>
+                    <label class="did-floating-label" for="phone">Phone number, Email</label>
+                </div>
+                <div class="did-floating-label-content">
+                    <input class="did-floating-input" type="text" id="fname" name="fname" placeholder=" " required>
+                    <label class="did-floating-label" for="fname">Firstname</label>
+                </div>
+                <div class="did-floating-label-content">
+                    <input class="did-floating-input" type="text" id="lname" name="lname" placeholder=" " required>
+                    <label class="did-floating-label" for="lname">Lastname</label>
+                </div>
+                <div class="did-floating-label-content">
+                    <input class="did-floating-input" type="text" id="uname" name="uname" placeholder=" " required>
+                    <label class="did-floating-label" for="uname">Username</label>
+                </div>
+                <div class="did-floating-label-content">
+                    <input class="did-floating-input" type="password" id="passwd" name="passwd" placeholder=" " required>
+                    <label class="did-floating-label" for="passwd">Password</label>
+                </div>
                 <button type="button">Sign Up</button>
             </form>
         </div>
