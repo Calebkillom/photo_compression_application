@@ -140,3 +140,23 @@ button:hover {
     top: -8px;
     font-size: 13px;
 }
+.main_web_page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+.mainwebcontent {
+    text-align: center;
+}
+.svg-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* space between the items */
+}
+.svg-container svg {
+    margin: 10px 0;
+}
