@@ -155,8 +155,23 @@ button:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px; /* space between the items */
+    gap: 10px; /* space between the items */
 }
 .svg-container svg {
     margin: 10px 0;
+}
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.flex-column a {
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+    margin: 0;
+    padding: 0;
+}
+.flex-column svg {
+    margin-bottom: 5px; /* Adjust margin within SVG */
 }
