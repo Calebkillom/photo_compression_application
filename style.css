@@ -8,17 +8,18 @@ html, body {
     width: 100%;
     height: 100%;
 }
+
 body {
     display: flex;
-    flex-direction: column; /* Stack elements vertically */
-    align-items: center; /* Center horizontally */
+    flex-direction: column;
+    align-items: center;
     justify-content: flex-start;
     height: 100vh;
-    background-color: #97e7e9;  /* Set the background color of the body */
+    background-color: #97e7e9;
 }
 
 /* Styling the top part of the website */
-.logosegment{
+.logosegment {
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -30,7 +31,8 @@ body {
     box-shadow: 5px 5px 10px rgba(128, 128, 128, 0.5);
     box-sizing: border-box;
 }
-.logoshape{
+
+.logoshape {
     padding: 10px;
     background-color: #e0e0e0;
     margin-left: 10px;
@@ -43,12 +45,13 @@ body {
     justify-content: center;
     position: absolute;
 }
+
 .mainbody {
     background-color: #ffffff;
-    padding: 20px;  /* Padding inside .mainbody */
+    padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Shadow effect */
-    width: 25%;  /* Set a specific width */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 25%;
     text-align: center;
     margin-top: 60px;
     height: auto;
@@ -63,6 +66,7 @@ body {
     display: flex;
     flex-direction: column;
 }
+
 form {
     display: flex;
     justify-content: center;
@@ -82,8 +86,8 @@ input, button {
     border: 1px solid #ccc;
     border-radius: 4px;
     width: 100%;
-    font-size: 16px; /* Example: Increase font size */
-    box-sizing: border-box; /* Ensure padding and border are included in width */
+    font-size: 16px;
+    box-sizing: border-box;
 }
 
 button {
@@ -91,55 +95,13 @@ button {
     color: white;
     border: none;
     cursor: pointer;
-    width: 100%; /* Button takes full width */
+    width: 100%;
 }
 
 button:hover {
     background-color: #45a049;
 }
 
-.did-floating-label-content { 
-    position: relative; 
-    margin-bottom: 20px; 
-    width: 100%; /* Ensure the floating label container takes full width */
-    max-width: 500px; /* Optional: set a max-width for the container */
-}
-
-.did-floating-label {
-    color: #1e4c82; 
-    font-size: 13px;
-    font-weight: normal;
-    position: absolute;
-    pointer-events: none;
-    left: 15px;
-    top: 11px;
-    padding: 0 5px;
-    background: #fff;
-    transition: 0.2s ease all; 
-}
-
-.did-floating-input, .did-floating-select {
-    font-size: 16px;
-    display: block;
-    width: 100%; /* Ensure inputs take full width of the form */
-    height: 40px; /* Adjust height as needed */
-    padding: 10px 15px;
-    background: #fff;
-    color: #323840;
-    border: 1px solid #3D85D8;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-.did-floating-input:focus, .did-floating-select:focus {
-    outline: none;
-}
-
-.did-floating-input:focus ~ .did-floating-label, .did-floating-input:not(:placeholder-shown) ~ .did-floating-label,
-.did-floating-select:focus ~ .did-floating-label, .did-floating-select:not([value=""]):valid ~ .did-floating-label {
-    top: -8px;
-    font-size: 13px;
-}
 .main_web_page {
     display: flex;
     flex-direction: column;
@@ -148,23 +110,26 @@ button:hover {
     width: 100%;
     height: 100%;
 }
+
 .mainwebcontent {
     text-align: center;
 }
+
 .svg-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px; /* space between the items */
+    gap: 10px;
 }
-.svg-container svg {
-    margin: 10px 0;
-}
+
 .flex-column {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 0;
+    margin: 0;
 }
+
 .flex-column a {
     display: inline-block;
     text-decoration: none;
@@ -172,6 +137,13 @@ button:hover {
     margin: 0;
     padding: 0;
 }
+
 .flex-column svg {
-    margin-bottom: 5px; /* Adjust margin within SVG */
+    margin-bottom: 5px;
+}
+
+svg {
+    display: block;
+    margin: 0;
+    padding: 0;
 }
