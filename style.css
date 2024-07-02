@@ -113,6 +113,9 @@ button:hover {
 
 .mainwebcontent {
     text-align: center;
+    position: relative;
+    top: -100px; /* Adjust this value to move it upwards */
+    transform: translateY(-20%); /* Adjust the percentage as needed */
 }
 
 .svg-container {
