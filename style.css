@@ -46,6 +46,75 @@ body {
     position: absolute;
 }
 
+.profilepic {
+    margin-left: 180px;
+}
+
+.profile-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.signupsheet {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 20px;
+    position: relative;
+}
+
+.btn {
+    height: 40px;
+    width: 200px;
+    margin: 20px auto;
+    box-shadow: 10px 10px 30px rgb(254, 215, 188);
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+}
+
+.login,
+.signup {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    color: #1e4c82;
+}
+
+.login:hover,
+.signup:hover {
+    color: #0a6d75;
+    background-color: transparent;
+}
+
+.slider {
+    height: 40px;
+    width: 100px;
+    border-radius: 50px;
+    background-image: linear-gradient(to right, #0a6d75, #ccffee);
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.5s ease-in-out;
+    z-index: 1;
+}
+
+.moveslider {
+    left: 100px;
+}
+
+button:hover {
+    background-color: transparent;
+}
+
+/* Main body styles */
 .mainbody {
     background-color: #ffffff;
     padding: 20px;
@@ -114,8 +183,8 @@ button:hover {
 .mainwebcontent {
     text-align: center;
     position: relative;
-    top: -100px; /* Adjust this value to move it upwards */
-    transform: translateY(-20%); /* Adjust the percentage as needed */
+    top: -100px;
+    transform: translateY(-20%);
 }
 
 .svg-container {
@@ -150,6 +219,7 @@ svg {
     margin: 0;
     padding: 0;
 }
+
 .content.header {
     text-align: left; 
     margin-left: 5%;
@@ -157,7 +227,7 @@ svg {
     margin-bottom: 5px;
 }
 
-/* Added back the floating label content styles */
+/* Floating label content styles */
 .did-floating-label-content {
     position: relative;
     margin-bottom: 20px;
@@ -197,6 +267,7 @@ svg {
 
 .did-floating-input:focus ~ .did-floating-label, .did-floating-input:not(:placeholder-shown) ~ .did-floating-label,
 .did-floating-select:focus ~ .did-floating-label, .did-floating-select:not([value=""]):valid ~ .did-floating-label {
-    top: -8px;
-    font-size: 13px;
+    top: -9px;
+    font-size: 11px;
+    color: #1e4c82;
 }

@@ -1,0 +1,38 @@
+.btn {
+    height: 60px;
+    width: 300px;
+    margin: 20px auto;
+    box-shadow: 10px 10px 30px rgb(254, 215, 188);
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative; /* Ensure the position is relative */
+}
+
+.login,
+.signup {
+    font-size: 22px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+    position: relative; /* Ensure the position is relative */
+    z-index: 2; /* Add z-index to ensure the text is above the slider */
+}
+
+.slider {
+    height: 60px;
+    width: 150px;
+    border-radius: 50px;
+    background-image: linear-gradient(to right, rgb(255, 195, 110), rgb(255, 146, 91));
+    position: absolute;
+    top: 0;  /* Align vertically with the buttons */
+    left: 0;  /* Align with the first button */
+    transition: all 0.5s ease-in-out;
+    z-index: 1; /* Ensure the slider is below the button text */
+}
+
+.moveslider {
+    left: 150px; /* Adjust as needed to move to the signup button */
+}
