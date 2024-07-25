@@ -1,55 +1,54 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>SignUp page</title>
+    <title>Sign Up</title>
 </head>
 <body>
     <div class="logosegment">
-        <div class="logoshape"><p>image compression</p></div>
+        <div class="logoshape"><p>Image Compression</p></div>
         <div class="profilepic">
-            <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg" class="profile-img">
-                <circle cx="25" cy="25" r="25" fill="#ccc" />
-                <text x="50%" y="50%" text-anchor="middle" dy=".3em" fill="#fff">P</text>
-            </svg>
+            <img src="path_to_profile_image" alt="Profile Picture" class="profile-img">
         </div>
         <div class="signupsheet">
             <div class="btn">
                 <div class="slider"></div>
-                <button class="login">Login</button>
-                <button class="signup">Signup</button>
+                <button class="login" id="loginBtn">Login</button>
+                <button class="signup" id="signupBtn">Signup</button>
             </div>
         </div>
     </div>
-    
     <div class="mainbody">
-        <h2>this is the body</h2>
+        <h2>Sign Up</h2>
         <div class="innerbody">
-            <form action="">
+            <form id="signupForm" action="signup_endpoint" method="POST">
                 <div class="did-floating-label-content">
-                    <input class="did-floating-input" type="text" id="phone" name="phone" placeholder=" " required>
-                    <label class="did-floating-label" for="phone">Phone number, Email</label>
+                    <input class="did-floating-input" type="email" id="phone" name="email" placeholder=" " required aria-label="Phone number or Email">
+                    <label class="did-floating-label" for="phone"> Email</label>
                 </div>
                 <div class="did-floating-label-content">
-                    <input class="did-floating-input" type="text" id="fname" name="fname" placeholder=" " required>
-                    <label class="did-floating-label" for="fname">Firstname</label>
+                    <input class="did-floating-input" type="text" id="fname" name="fname" placeholder=" " required aria-label="First name">
+                    <label class="did-floating-label" for="fname">First name</label>
                 </div>
                 <div class="did-floating-label-content">
-                    <input class="did-floating-input" type="text" id="lname" name="lname" placeholder=" " required>
-                    <label class="did-floating-label" for="lname">Lastname</label>
+                    <input class="did-floating-input" type="text" id="lname" name="lname" placeholder=" " required aria-label="Last name">
+                    <label class="did-floating-label" for="lname">Last name</label>
                 </div>
                 <div class="did-floating-label-content">
-                    <input class="did-floating-input" type="text" id="uname" name="uname" placeholder=" " required>
+                    <input class="did-floating-input" type="text" id="uname" name="uname" placeholder=" " required aria-label="Username">
                     <label class="did-floating-label" for="uname">Username</label>
                 </div>
                 <div class="did-floating-label-content">
-                    <input class="did-floating-input" type="password" id="passwd" name="passwd" placeholder=" " required>
+                    <input class="did-floating-input" type="password" id="passwd" name="passwd" placeholder=" " required aria-label="Password">
                     <label class="did-floating-label" for="passwd">Password</label>
                 </div>
-                <button type="button">Sign Up</button>
+                <button type="submit">Sign Up</button>
             </form>
         </div>
     </div>
+    <script src="webjs/main.js"></script>
+    <script src="webjs/auth.js"></script>
 </body>
 </html>

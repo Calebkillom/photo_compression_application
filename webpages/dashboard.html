@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Image Compression App - Dashboard</title>
+</head>
+<body>
+    <div class="logosegment">
+        <div class="logoshape"><p>Image Compression</p></div>
+        <div class="profilepic">
+            <img src="path_to_profile_image" alt="Profile Picture" class="profile-img">
+        </div>
+        <div class="signupsheet">
+            <button class="logout" id="logoutButton">Logout</button>
+        </div>
+    </div>
+    <div class="main-web-page-logged-in">
+        <div class="sidebar">
+            <nav>
+                <a href="dashboard.html">Home</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="profile.html">Profile</a>
+                <a href="settings.html">Settings</a>
+            </nav>
+        </div>
+        <div class="mainwebcontent">
+            <div class="dashboard-overview">
+                <h2>Welcome, User</h2>
+                <p>Here's a quick overview of your account.</p>
+                <!-- Add more content as needed -->
+            </div>
+            <div class="upload-section">
+                <h2>Upload and Compress Image</h2>
+                <div class="svg-container">
+                    <div>
+                        <a href="#"id="uploadImagesLink">
+                            <svg width="420" height="120" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="400" height="100" x="10" y="10" rx="20" ry="20" fill="blue" />
+                                <text x="210" y="65" font-family="Arial" font-size="36" fill="white" text-anchor="middle" dominant-baseline="middle">Upload Images</text>
+                            </svg>
+                        </a>
+                        <div>or drop images here</div>
+                    </div>
+                    <div class="flex-column">
+                        <a href="#" id="googleDriveLink">
+                            <svg height="60" width="60" xmlns="http://www.w3.org/2000/svg">
+                                <circle r="25" cx="30" cy="30" fill="gray" stroke="green" stroke-width="3"></circle>
+                                <image href="images/icons8-google-drive-64.png" x="15" y="15" height="30px" width="30px"></image>
+                            </svg>
+                        </a>
+                        <a href="#" id="dropboxLink">
+                            <svg height="60" width="60" xmlns="http://www.w3.org/2000/svg">
+                                <circle r="25" cx="30" cy="30" fill="gray" stroke="green" stroke-width="3"></circle>
+                                <image href="images/icons8-dropbox-50.png" x="15" y="15" height="30px" width="30px"></image>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <a href="/api/images/download/{{ image.id }}" class="btn btn-primary btn-download" data-id="{{ image.id }}">Download</a>
+            </div>
+        </div>
+    </div>
+    <script src="webjs/auth.js"></script>
+    <script src="webjs/main.js"></script>
+    <script src="webjs/image.js"></script>
+</body>
+</html>

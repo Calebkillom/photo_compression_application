@@ -64,6 +64,7 @@ body {
     position: relative;
 }
 
+/* Common button styles */
 .btn {
     height: 40px;
     width: 200px;
@@ -74,8 +75,10 @@ body {
     justify-content: space-around;
     align-items: center;
     position: relative;
+    overflow: hidden;
 }
 
+/* Specific button styles */
 .login,
 .signup {
     font-size: 16px;
@@ -92,6 +95,28 @@ body {
 .signup:hover {
     color: #0a6d75;
     background-color: transparent;
+}
+
+/* Logout button styling */
+.logout {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    color: #fff; /* Text color */
+    background-image: linear-gradient(to right, #0a6d75, #ccffee); /* Match slider color */
+    width: 200px; /* Match slider width */
+    height: 40px; /* Match slider height */
+    border-radius: 50px; /* Match slider shape */
+    box-shadow: 10px 10px 30px rgb(254, 215, 188); /* Match slider shadow */
+    transition: background-color 0.3s ease-in-out;
+}
+
+.logout:hover {
+    color: #0a6d75;
+    background-color: transparent; /* Maintain the hover effect similar to slider */
 }
 
 .slider {
@@ -114,6 +139,7 @@ button:hover {
     background-color: transparent;
 }
 
+
 /* Main body styles */
 .mainbody {
     background-color: #ffffff;
@@ -127,7 +153,6 @@ button:hover {
     min-height: 500px;
     display: flex;
     flex-direction: column;
-    min-height: 300px;
 }
 
 .innerbody {
@@ -171,27 +196,103 @@ button:hover {
     background-color: #45a049;
 }
 
-.main_web_page {
+
+.main-web-page-logged-in {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    flex-direction: row;
     width: 100%;
     height: 100%;
+    background-color: #f9f9f9;
+}
+
+.sidebar {
+    width: 200px;
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar nav a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #1e4c82;
+    font-size: 16px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+.sidebar nav a:hover {
+    background-color: #ccffee;
 }
 
 .mainwebcontent {
+    flex: 1;
     text-align: center;
-    position: relative;
-    top: -100px;
-    transform: translateY(-20%);
+    padding: 20px;
 }
 
-.svg-container {
+.dashboard-overview,
+.upload-section,
+.gallery-section {
+    margin-bottom: 20px;
+}
+
+.upload-section input[type="file"] {
+    margin-bottom: 10px;
+}
+
+.upload-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.upload-btn:hover {
+    background-color: #45a049;
+}
+
+.gallery-section {
     display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 20px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gallery-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.gallery-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gallery-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.download-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.download-btn:hover {
+    background-color: #45a049;
 }
 
 .flex-column {
@@ -213,7 +314,36 @@ button:hover {
 .flex-column svg {
     margin-bottom: 5px;
 }
+.upload-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the svg-container horizontally */
+    justify-content: center; /* Centers the svg-container vertically if needed */
+    width: 100%;
+    height: auto; /* Adjust height based on content */
+}
 
+.main_webb_page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.mainweb_content {
+    text-align: center;
+    position: relative;
+    top: -100px;
+    transform: translateY(-20%);
+}
+.svg-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 20px;
+}
 svg {
     display: block;
     margin: 0;
@@ -221,7 +351,7 @@ svg {
 }
 
 .content.header {
-    text-align: left; 
+    text-align: left;
     margin-left: 5%;
     padding-top: 10px;
     margin-bottom: 5px;

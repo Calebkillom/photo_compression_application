@@ -1,18 +1,16 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Image Compression App</title>
 </head>
 <body>
     <div class="logosegment">
-        <div class="logoshape"><p>image compression</p></div>
+        <div class="logoshape"><p>Image Compression</p></div>
         <div class="profilepic">
-            <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg" class="profile-img">
-                <circle cx="25" cy="25" r="25" fill="#ccc" />
-                <text x="50%" y="50%" text-anchor="middle" dy=".3em" fill="#fff">P</text>
-            </svg>
+            <img src="path_to_profile_image" alt="Profile Picture" class="profile-img">
         </div>
         <div class="signupsheet">
             <div class="btn">
@@ -22,16 +20,14 @@
             </div>
         </div>
     </div>
-    <div class="main_web_page">
-        <div class="sidebar"></div>
-        <div class="mainwebcontent">
+    <div class="main_webb_page">
+        <div class="mainweb_content">
             <div class="content header">
                 <h2>Image Compression</h2>
             </div>
             <div class="svg-container">
-                <!-- First section with Upload Images and drop text -->
                 <div>
-                    <a href="">
+                    <a href="#">
                         <svg width="420" height="120" xmlns="http://www.w3.org/2000/svg">
                             <rect width="400" height="100" x="10" y="10" rx="20" ry="20" fill="blue" />
                             <text x="210" y="65" font-family="Arial" font-size="36" fill="white" text-anchor="middle" dominant-baseline="middle">Upload Images</text>
@@ -39,15 +35,14 @@
                     </a>
                     <div>or drop images here</div>
                 </div>
-                <!-- Second section with circles and images -->
                 <div class="flex-column">
-                    <a href="">
+                    <a href="#">
                         <svg height="60" width="60" xmlns="http://www.w3.org/2000/svg">
                             <circle r="25" cx="30" cy="30" fill="gray" stroke="green" stroke-width="3"></circle>
                             <image href="images/icons8-google-drive-64.png" x="15" y="15" height="30px" width="30px"></image>
                         </svg>
                     </a>
-                    <a href="">
+                    <a href="#">
                         <svg height="60" width="60" xmlns="http://www.w3.org/2000/svg">
                             <circle r="25" cx="30" cy="30" fill="gray" stroke="green" stroke-width="3"></circle>
                             <image href="images/icons8-dropbox-50.png" x="15" y="15" height="30px" width="30px"></image>
@@ -57,5 +52,6 @@
             </div>
         </div>
     </div>
+    <script src="webjs/main.js"></script>
 </body>
 </html>

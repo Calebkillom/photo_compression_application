@@ -1,18 +1,16 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Forgot Password</title>
 </head>
 <body>
     <div class="logosegment">
-        <div class="logoshape"><p>image compression</p></div>
+        <div class="logoshape"><p>Image Compression</p></div>
         <div class="profilepic">
-            <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg" class="profile-img">
-                <circle cx="25" cy="25" r="25" fill="#ccc" />
-                <text x="50%" y="50%" text-anchor="middle" dy=".3em" fill="#fff">P</text>
-            </svg>
+            <img src="path_to_profile_image" alt="Profile Picture" class="profile-img">
         </div>
         <div class="signupsheet">
             <div class="btn">
@@ -23,22 +21,22 @@
         </div>
     </div>
     <div class="mainbody">
-        <h2>this is the body</h2>
+        <h2>Reset Your Password</h2>
         <div class="innerbody">
-            <form action="">
+            <form action="reset_password_endpoint" method="POST">
                 <div class="did-floating-label-content">
-                    <input class="did-floating-input" type="text" id="uname" name="uname" placeholder=" " required>
+                    <input class="did-floating-input" type="text" id="uname" name="uname" placeholder=" " required aria-label="Username">
                     <label class="did-floating-label" for="uname">Username</label>
                 </div>
                 <div class="did-floating-label-content">
-                    <input class="did-floating-input" type="text" id="phonetwo" name="phonetwo" placeholder=" " required>
+                    <input class="did-floating-input" type="text" id="phonetwo" name="phonetwo" placeholder=" " required aria-label="Phone number or Email">
                     <label class="did-floating-label" for="phonetwo">Phone number, Email</label>
                 </div>
-                <button type="button">Reset Password</button><br>
-                <a href="url">Log in</a>
+                <button type="submit">Reset Password</button><br>
+                <a href="login.html">Log in</a>
             </form>
         </div>
     </div>
-    
 </body>
+<script src="webjs/main.js"></script>
 </html>
