@@ -65,3 +65,7 @@ class ImageRepository:
         if search_term:
             query = query.filter(Image.original_file_name.ilike(f"%{search_term}%"))
         return query.all()
+    
+    @staticmethod
+    def get_image_by_id(session, image_id):
+        return session.query(Image).filter_by(id=image_id).first()

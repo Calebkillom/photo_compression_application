@@ -123,4 +123,13 @@ class ImageService:
             return image
         else:
             return None
+        
     
+    @staticmethod
+    def get_image_by_id(image_id):
+        session = get_session()
+        try:
+            image = ImageRepository.get_image_by_id(session, image_id)
+            return image
+        finally:
+            session.close()

@@ -142,9 +142,18 @@ def download_image():
             image = image_service.get_image_by_id(image_id)
             if image and image.compressed_file_name:
                 file_path = image.compressed_file_name
+                
+                # Log the file path
+                logging.debug(f"File path for image ID {image_id}: {file_path}")
+                
                 # Ensure the file exists
                 if os.path.exists(file_path):
-                    return send_from_directory(directory='/tmp', filename=os.path.basename(file_path), as_attachment=True)
+                    directory = os.path.dirname(file_path)
+                    filename = os.path.basename(file_path)
+                    
+                    logging.debug(f"Sending file from directory: {directory}, filename: {filename}")
+                    
+                    return send_from_directory(directory=directory, path=filename, as_attachment=True)
                 return jsonify({'message': 'File not found'}), 404
             return jsonify({'message': 'Invalid image ID or file path'}), 404
         return jsonify({'message': 'Image ID not provided'}), 400
