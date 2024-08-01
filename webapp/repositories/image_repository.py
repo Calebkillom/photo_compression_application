@@ -1,21 +1,16 @@
 #!/usr/bin/python3
 
+from datetime import datetime
 from webapp.models import Image
 from webapp.engine import get_session
 
 class ImageRepository:
     @staticmethod
     def create_image(session, image_data):
-        # Debug: Print the type and content of image_data
-        print(f"DEBUG: image_data (type): {type(image_data)}")
-        print(f"DEBUG: image_data (content): {image_data}")
-
         # Check if image_data is an instance of Image
         if isinstance(image_data, Image):
-            # Directly use the Image instance
             image = image_data
         elif isinstance(image_data, dict):
-            # Convert dictionary to Image instance
             required_fields = {'user_id', 'file_path', 'original_file_name'}
             if not required_fields.issubset(image_data.keys()):
                 raise ValueError("Missing required fields in image_data")
@@ -25,19 +20,15 @@ class ImageRepository:
                 file_path=image_data.get('file_path'),
                 original_file_name=image_data.get('original_file_name'),
                 compressed_file_name=image_data.get('compressed_file_name'),
-                upload_date=image_data.get('upload_date')
+                upload_date=image_data.get('upload_date', datetime.now())
             )
         else:
             raise TypeError("image_data must be an Image instance or a dictionary")
 
-        # Debug: Print the created Image object
-        print(f"DEBUG: Created Image object: {image}")
-
         # Add to session and commit
         session.add(image)
         session.commit()
-        print("DEBUG: Image committed to session")
-
+        
         return image
 
     @staticmethod

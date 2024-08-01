@@ -1,9 +1,11 @@
 from flask import Blueprint, request, jsonify, send_from_directory
 from webapp.services.image_service import ImageService
 from webapp.utils.auth_utils import decode_token
+from flask_cors import cross_origin
 import requests
 import json
 import os
+import logging
 
 image_routes = Blueprint('image_routes', __name__)
 image_service = ImageService()
@@ -25,6 +27,13 @@ def upload_image():
         if file:
             file_path = f'/tmp/{file.filename}'
             file.save(file_path)
+            logging.info(f"File saved to {file_path}")
+            
+            if os.path.exists(file_path):
+                logging.info(f"File {file_path} exists after saving.")
+            else:
+                logging.error(f"File {file_path} does not exist after saving.")
+            
             compressed_file_name = file_path + '.zst'
             compressed_image = image_service.upload_image(file_path, file.filename, compressed_file_name, user_id)
             return jsonify({'message': 'Image uploaded and compressed', 'image': compressed_image}), 201
@@ -122,18 +131,23 @@ def delete_image(image_id):
             return jsonify({'message': 'Image deleted successfully'}), 200
     return jsonify({'message': 'Invalid or expired token'}), 401
 
-@image_routes.route('/download/<int:image_id>', methods=['GET'])
-def download_image(image_id):
+@image_routes.route('/download', methods=['POST'])
+def download_image():
+    data = request.get_json()
+    image_id = data.get('image_id')
+    
     user_id = get_user_id_from_token()
     if user_id:
-        image = image_service.get_image_by_id(image_id)
-        if image and image.compressed_file_name:
-            file_path = image.compressed_file_name
-            # Ensure the file exists
-            if os.path.exists(file_path):
-                return send_from_directory(directory='/tmp', filename=os.path.basename(file_path), as_attachment=True)
-            return jsonify({'message': 'File not found'}), 404
-        return jsonify({'message': 'Invalid image ID or file path'}), 404
+        if image_id is not None:
+            image = image_service.get_image_by_id(image_id)
+            if image and image.compressed_file_name:
+                file_path = image.compressed_file_name
+                # Ensure the file exists
+                if os.path.exists(file_path):
+                    return send_from_directory(directory='/tmp', filename=os.path.basename(file_path), as_attachment=True)
+                return jsonify({'message': 'File not found'}), 404
+            return jsonify({'message': 'Invalid image ID or file path'}), 404
+        return jsonify({'message': 'Image ID not provided'}), 400
     return jsonify({'message': 'Invalid or expired token'}), 401
 
 @image_routes.route('/search', methods=['GET'])
@@ -144,3 +158,30 @@ def search_images():
         images = image_service.search_images(user_id, query)
         return jsonify([image.to_dict() for image in images]), 200
     return jsonify({'message': 'Invalid or expired token'}), 401
+
+@image_routes.route('/compress', methods=['POST'])
+def compress_image():
+    data = request.get_json()
+    image_id = data.get('image_id')
+
+    logging.debug(f"Received request to compress image with id: {image_id}")
+
+    compression_level = 3  # Example compression level
+
+    try:
+        image = image_service.compress_image(image_id, compression_level)
+        if image:
+            logging.debug(f"Compression successful for image id: {image_id}")
+            return jsonify({'success': True, 'image': image}), 200
+        else:
+            logging.debug(f"Image with id {image_id} not found or compression failed")
+            return jsonify({'success': False, 'message': 'Image not found or compression failed'}), 404
+    except FileNotFoundError:
+        logging.error(f"Image with id {image_id} not found")
+        return jsonify({'success': False, 'message': 'Image not found'}), 404
+    except ValueError as ve:
+        logging.error(f"Value error while compressing image with id {image_id}: {str(ve)}")
+        return jsonify({'success': False, 'message': str(ve)}), 400
+    except Exception as e:
+        logging.error(f"Error compressing image with id {image_id}: {str(e)}")
+        return jsonify({'success': False, 'message': 'Internal server error'}), 500

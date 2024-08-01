@@ -6,15 +6,29 @@ from webapp.repositories import ImageRepository
 from webapp.engine import get_session
 import zstandard as zstd
 import requests
+import os, logging
 
 class ImageService:
     @staticmethod
     def upload_image(file_path, original_file_name, compressed_file_name, user_id):
         session = get_session()
         try:
-            image = Image(file_path=file_path, original_file_name=original_file_name,
-                          compressed_file_name=compressed_file_name, user_id=user_id)
-            ImageRepository.create_image(session, image)
+            # Create an Image object
+            image_data = {
+                'user_id': user_id,
+                'file_path': file_path,
+                'original_file_name': original_file_name,
+                'compressed_file_name': compressed_file_name
+            }
+            
+            # Create and save the Image object in the database
+            image = ImageRepository.create_image(session, image_data)
+
+            if os.path.exists(compressed_file_name):
+                logging.info(f"Compressed file {compressed_file_name} exists.")
+            else:
+                logging.error(f"Compressed file {compressed_file_name} does not exist.")
+            
             return image.to_dict()
         finally:
             session.close()
@@ -92,7 +106,6 @@ class ImageService:
         response = requests.get(url, headers=headers)
         if response.status_code == 200:
             file_content = response.content
-            # Generate a unique filename or use a meaningful name
             original_file_name = url.split('/')[-1]
             file_path = f"uploads/{original_file_name}"
             compressed_file_name = f"{file_path}.zst"
@@ -101,9 +114,13 @@ class ImageService:
             with open(file_path, 'wb') as f:
                 f.write(file_content)
             
-            # Compress the image
+            # Upload and create the Image object
             image = ImageService.upload_image(file_path, original_file_name, compressed_file_name, user_id)
+            
+            # Compress the image
             ImageService.compress_image(image['id'], compression_level=3)  # Example compression level
+            
             return image
         else:
             return None
+    
